@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%= title %></title>
+  </head>
+  <body>
+    <!-- <script src="https://cdn.shopify.com/s/assets/external/app.js"></script> -->
+    <script src="https://file.hstatic.net/1000300730/file/appclientt.js"></script>
+    <script>
+      window.apiKey = "<%= apiKey %>"
+      window.shopOrigin = "https://<%= shop %>"
+
+      const haravanAppConfig = {
+        apiKey: window.apiKey,
+        shopOrigin: window.shopOrigin,
+        forceRedirect: false
+      }
+      if ("<%= process.env.NODE_ENV %>" === 'development') {
+        haravanAppConfig.forceRedirect = false;
+      }
+
+      HaravanApp.init(haravanAppConfig);
+    </script>
+
+    <div id="root"></div>
+    <script type="text/javascript" src="/vendors.ec9988b8e6352a2d1b22.js"></script>
+    <script type="text/javascript" src="/bundle.d5216f480bca10c92483.js"></script>
+</body>
+</html>
